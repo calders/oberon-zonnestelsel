@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Results</title>
+    <title>Resultaten</title>
 </head>
 <body>
-    <h1>Accuracy Results</h1>
+    <h1>Nauwkeurigheidsresultaten</h1>
     {% if errors %}
         <ul>
             {% for error in errors %}
@@ -14,11 +14,11 @@
             {% endfor %}
         </ul>
     {% else %}
-        <h2>Average Accuracy: {{ average_accuracy | round(2) }}%</h2>
+        <h2>Gemiddelde afwijking: {{ average_accuracy | round(2) }}% (kleiner is beter!)</h2>
         <table border="1">
             <tr>
-                <th>Planet</th>
-                <th>Accuracy (%)</th>
+                <th>Planeet</th>
+                <th>Afwijking (%)</th>
             </tr>
             {% for planet, accuracy in accuracy.items() %}
             <tr>
@@ -28,9 +28,9 @@
             {% endfor %}
         </table>
         
-        <h2>Distance Comparison</h2>
-        <img src="data:image/png;base64,{{ graph_url }}" alt="Distance Comparison">
+        <h2>Afstandsvergelijking</h2>
+        <img src="data:image/png;base64,{{ graph_url }}" alt="Afstandsvergelijking">
     {% endif %}
-    <a href="/">Back</a>
+    <a href="/">Terug</a>
 </body>
 </html>

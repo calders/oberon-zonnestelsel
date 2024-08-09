@@ -20,7 +20,7 @@ actual_distances = {
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        sun_to_earth_distance = float(request.form['sun_to_earth'])
+        sun_to_earth_distance = float(request.form['Earth'])
         scale_factor = sun_to_earth_distance / actual_distances['Earth']
         user_distances = {}
         errors = []
@@ -52,11 +52,11 @@ def index():
         expected_distances = [actual_distances[planet] * scale_factor for planet in planets]
         
         fig, ax = plt.subplots()
-        ax.plot(planets, measured_distances, label="Measured Distances", marker='o')
-        ax.plot(planets, expected_distances, label="Expected Distances", marker='x')
-        ax.set_xlabel('Planets')
-        ax.set_ylabel('Distance (in your model)')
-        ax.set_title('Comparison of Measured and Expected Distances')
+        ax.plot(planets, measured_distances, label="Gemeten afstand", marker='o')
+        ax.plot(planets, expected_distances, label="Verwachte afstand", marker='x')
+        ax.set_xlabel('Planeet')
+        ax.set_ylabel('Afstand (in het model)')
+        ax.set_title('Vergelijk gemeten en verwachte afstanden')
         ax.legend()
         
         # Save plot to a bytes buffer
@@ -72,4 +72,4 @@ def index():
     return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5001, debug=True)

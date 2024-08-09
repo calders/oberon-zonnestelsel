@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scale Model Accuracy</title>
+    <title>Nauwkeurigheid van Schaalmodel</title>
 </head>
 <body>
-    <h1>Scale Model Accuracy Calculator</h1>
+    <h1>Rekenmachine voor Nauwkeurigheid van Schaalmodel</h1>
     <form method="POST">
-        <label for="sun_to_earth">Distance from Sun to Earth (in your model):</label>
-        <input type="text" id="sun_to_earth" name="sun_to_earth" required>
+        <label for="sun_to_earth">Afstand van Zon tot Mercurius:</label>
+        <input type="text" name="Mercury" placeholder="Afstand tot Mercurius" required>
         <br><br>
-        {% for planet in actual_distances %}
-        {% if planet != 'Earth' %}
-        <label for="{{ planet }}">{{ planet }} (distance in your model):</label>
-        <input type="text" id="{{ planet }}" name="{{ planet }}">
+        <label for="sun_to_earth">Afstand van Zon tot Venus:</label>
+        <input type="text" name="Venus" placeholder="Afstand tot Venus" required>
         <br><br>
-        {% endif %}
-        {% endfor %}
-        <input type="submit" value="Calculate Accuracy">
+        <label for="sun_to_earth">Afstand van Zon tot Aarde:</label>
+        <input type="text" name="Earth" placeholder="Afstand tot Aarde" required>
+        <br><br>
+        <label for="sun_to_earth">Afstand van Zon tot Mars:</label>
+        <input type="text" name="Mars" placeholder="Afstand tot Mars" required>
+        <br><br>
+        <label for="sun_to_earth">Afstand van Zon tot Jupiter:</label>
+        <input type="text" name="Jupiter" placeholder="Afstand tot Jupiter" required>
+        <br><br>
+        <label for="sun_to_earth">Afstand van Zon tot Saturnus:</label>
+        <input type="text" name="Saturn" placeholder="Afstand tot Saturnus" required>
+        <br><br>
+        <label for="sun_to_earth">Afstand van Zon tot Uranus:</label>
+        <input type="text" name="Uranus" placeholder="Afstand tot Uranus" required>
+        <br><br>
+        <label for="sun_to_earth">Afstand van Zon tot Neptunus:</label>
+        <input type="text" name="Neptune" placeholder="Afstand tot Neptunus" required>
+        <br><br>
+        <input type="submit" value="Bereken Nauwkeurigheid">
     </form>
 </body>
 </html>
