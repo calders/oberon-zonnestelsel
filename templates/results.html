@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Accuracy Results</h1>
+    {% if errors %}
+        <ul>
+            {% for error in errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h2>Average Accuracy: {{ average_accuracy | round(2) }}%</h2>
+        <table border="1">
+            <tr>
+                <th>Planet</th>
+                <th>Accuracy (%)</th>
+            </tr>
+            {% for planet, accuracy in accuracy.items() %}
+            <tr>
+                <td>{{ planet }}</td>
+                <td>{{ accuracy | round(2) }}%</td>
+            </tr>
+            {% endfor %}
+        </table>
+        
+        <h2>Distance Comparison</h2>
+        <img src="data:image/png;base64,{{ graph_url }}" alt="Distance Comparison">
+    {% endif %}
+    <a href="/">Back</a>
+</body>
+</html>

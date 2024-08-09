@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scale Model Accuracy</title>
+</head>
+<body>
+    <h1>Scale Model Accuracy Calculator</h1>
+    <form method="POST">
+        <label for="sun_to_earth">Distance from Sun to Earth (in your model):</label>
+        <input type="text" id="sun_to_earth" name="sun_to_earth" required>
+        <br><br>
+        {% for planet in actual_distances %}
+        {% if planet != 'Earth' %}
+        <label for="{{ planet }}">{{ planet }} (distance in your model):</label>
+        <input type="text" id="{{ planet }}" name="{{ planet }}">
+        <br><br>
+        {% endif %}
+        {% endfor %}
+        <input type="submit" value="Calculate Accuracy">
+    </form>
+</body>
+</html>
